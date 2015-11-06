@@ -1,0 +1,17 @@
+{"pets":[
+    {"name":"Doug","photo":"http:\/\/images2.fanpop.com\/image\/photos\/14500000\/Pug-all-small-dogs-14523314-100-100.jpg",
+        "description":"Doug the Pug","age":"4","race":"Pug","city":"S\u00e3o Paulo",
+        "state":{"name":"S\u00e3o Paulo","initials":"SP"},"country":{"name":"Brasil","initials":"BR"}},
+    {"name":"Hatchi","photo":"http:\/\/www.pedrocacique.com\/kokex\/pets\/hatchi\/hatchi0.jpg",
+        "description":"Linda vira-lata preta","age":"3","race":"Vira-lata","city":"Uberl\u00e2ndia",
+        "state":{"name":"Minas Gerais","initials":"MG"},"country":{"name":"Brasil","initials":"BR"}},
+    {"name":"Bob","photo":"http:\/\/pedrocacique.com\/kokex\/pets\/samples\/sample1.jpg",
+        "description":"Vira lata branco muito brincalh\u00e3o","age":"2","race":"Vira-lata","city":"Uberl\u00e2ndia",
+        "state":{"name":"Minas Gerais","initials":"MG"},"country":{"name":"Brasil","initials":"BR"}},
+    {"name":"Ralf","photo":"http:\/\/pedrocacique.com\/kokex\/pets\/samples\/sample2.jpg",
+        "description":"","age":"6","race":"Vira-lata","city":"Seritinga",
+        "state":{"name":"Minas Gerais","initials":"MG"},"country":{"name":"Brasil","initials":"BR"}},
+    {"name":"Ted","photo":"http:\/\/pedrocacique.com\/kokex\/pets\/samples\/sample4.jpg",
+        "description":"","age":"2","race":"Vira-lata","city":"S\u00e3o Paulo",
+        "state":{"name":"S\u00e3o Paulo","initials":"SP"},"country":{"name":"Brasil","initials":"BR"}}],
+"success":1}
