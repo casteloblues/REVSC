@@ -1,0 +1,25 @@
+/* 
+    Created on : Feb 18, 2016, 5:43:15 PM
+    Author     : Castelo
+*/
+
+body{
+    margin:0;
+}
+
+.preencher {
+    background-color: #ff0000;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px;
+}
