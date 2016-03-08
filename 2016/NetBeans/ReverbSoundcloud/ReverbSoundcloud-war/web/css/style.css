@@ -1,0 +1,44 @@
+body {
+    margin: 0; //retira a margem da lateral
+}
+
+.topMenu {
+    background-color: #08536C;
+    color: #fff;
+    text-decoration: none;
+}
+
+.topMenu ul {
+    padding-left: 0px;
+    margin: 0; //cola a margem na parte superior
+}
+
+.topMenu ul a, .topMenu ul a:active, .topMenu ul a:visited{
+    color: #fff;
+}
+
+.topMenu ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 15px;
+}
+
+/*.topMenu ul li:hover, .selectedMenu{
+    background-color: #F2FF00;
+    color: black;
+}*/
+
+.msg {
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 1px solid #f00;
+    padding: 5px;
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    animation: anime 3s;
+}
+
+@keyframes anime {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
