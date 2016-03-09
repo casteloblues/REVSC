@@ -20,8 +20,8 @@
 
         <c:forEach items="${instList}" var="inst">
         <tr>
-            <td>Inst<c:out value="${inst.brand}"/></td>
-            <td>Model<c:out value="${inst.model}"/></td>
+            <td><c:out value="${inst.brand}"/></td>
+            <td><c:out value="${inst.model}"/></td>
         </tr>
     </c:forEach>
 
