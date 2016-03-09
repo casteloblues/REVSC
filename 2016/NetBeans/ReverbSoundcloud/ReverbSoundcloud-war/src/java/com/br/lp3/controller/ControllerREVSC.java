@@ -39,7 +39,7 @@ public class ControllerREVSC extends HttpServlet {
            String comStr = request.getParameter("command"); //variavel para armazenar o command
 
             try {
-                Command com = (Command) Class.forName("com.br.lp3.command" + comStr + "Command").newInstance();
+                Command com = (Command) Class.forName("com.br.lp3.command." + comStr + "Command").newInstance();
                 com.init(request, response);
                 com.exec();
                 request.getRequestDispatcher(com.getReturnPage()).forward(request, response);

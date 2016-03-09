@@ -24,7 +24,7 @@
             <p><input text="text" name="username" placeholder="usuário"/></p>
             <p><input type="password" name="password" placeholder="senha"/></p>
             <p><input type="submit" value="Login"/></p>
-            <input type="hidden" name="command" value="user"/>
+            <input type="hidden" name="command" value="User"/>
             <input type="hidden" name="action" value="login"/>
         </form>
     </body>

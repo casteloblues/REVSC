@@ -5,8 +5,11 @@
  */
 package com.br.lp3.command;
 
+import com.br.lp3.controller.Manager;
 import com.br.lp3.dao.UserRevSCDAO;
+import com.br.lp3.entities.InstREVSC;
 import com.br.lp3.entities.UserREVSC;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,7 +22,7 @@ public class UserCommand implements Command {
     public HttpServletRequest req;
     public HttpServletResponse resp;
     public String retPage = "index.jsp"; //return page
-    
+
     @Override
     public void init(HttpServletRequest req, HttpServletResponse resp) {
         this.req = req;
@@ -29,38 +32,57 @@ public class UserCommand implements Command {
     @Override
     public void exec() {
         String action = req.getParameter("action");
-        
-        switch(action) {
+
+        switch (action) {
             case "login":
                 String username = req.getParameter("username");
                 String pwd = req.getParameter("password");
-                
+
                 UserRevSCDAO uDAO = new UserRevSCDAO();
                 UserREVSC user = uDAO.readByUsername(username);
-                
-                if(user != null && user.getPassword().equals(pwd)) {
+
+                if (user != null && user.getPassword().equals(pwd)) {
                     req.getSession().setAttribute("username", username);
                     retPage = "index.jsp";
                 } else {
                     req.getSession().setAttribute("errormsg", "Usuário inexistente ou senha incorreta");
                     retPage = "login.jsp";
                 }
-            break;
-                
+                break;
+
             case "logout":
                 req.getSession().setAttribute("username", null);
                 retPage = "index.jsp";
                 break;
-                
+
             case "reverbSearch":
-                System.out.println("Teste sucesso");
+                retPage = "reverbSearch.jsp";
                 break;
-        }
+
+            case "reverbSearchDetail":
+                req.setAttribute("brand", req.getParameter("brand"));
+                req.setAttribute("model", req.getParameter("model"));
+                req.setAttribute("year_max", req.getParameter("year_max"));
+                req.setAttribute("year_min", req.getParameter("year_min"));
+                String urlComp = "https://reverb.com/api/listings/all?make=" + req.getParameter("brand") + 
+                        "&model=" + req.getParameter("model") + "&year_max=" + req.getParameter("year_max") + 
+                        "&year_min=" + req.getParameter("year_min") + "&page=1&per_page=50";
+                List instList = Manager.teste();
+                req.setAttribute("instList", instList);
+                
+                System.out.println(urlComp);
+                for (int i = 0; i < instList.size(); i++) {
+                    System.out.println(instList.get(i));
+                }
+                
+                retPage = "reverbSearch.jsp";
+                break;
+        }  
     }
 
     @Override
     public String getReturnPage() {
         return retPage;
     }
-    
+
 }
