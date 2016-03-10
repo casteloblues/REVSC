@@ -13,17 +13,19 @@
         <%@include file="topMenu.jsp"%>
     </head>
     <body>
-        <h1>Search Results for ${brand} ${model} ${year_min} ${year_max}</h1>
-
+        <h1>Search Results</h1>
+        <%--<c:redirect url="https://reverb.com/?query=${queryC}&x=11&y=5"/>--%>
         <!--<p><input type="submit" value="GO"/></p>-->
         <%--<c:redirect url="https://reverb.com/api/listings/all?make=${brand}&model=${model}&year_max=${year_max}&year_min=${year_min}&page=1&per_page=50"></c:redirect>--%>
 
         <c:forEach items="${instList}" var="inst">
-        <tr>
-            <td><c:out value="${inst.brand}"/></td>
-            <td><c:out value="${inst.model}"/></td>
-        </tr>
-    </c:forEach>
+            <c:out value="${inst.photo}"/>
+            <p><c:out value="${inst.title}"/></p>
+            
+            
 
-</body>
+        </c:forEach>
+
+
+    </body>
 </html>

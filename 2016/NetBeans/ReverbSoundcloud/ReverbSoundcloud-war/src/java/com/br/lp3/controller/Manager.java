@@ -30,17 +30,17 @@ public class Manager {
     
 //    private static String urlBase;
 //    private static final String urlBase = "https://reverb.com/api/listings/all?make=${brand}&model=${model}&year_max=${year_max}&year_min=${year_min}&page=1&per_page=50";
-    private static final String urlBase = "https://reverb.com/api/listings/all?page=1&per_page=50";
-    public static List<InstREVSC> teste() { //urlComp = composição com termos de busca
-//        String urlBase = urlComp;
+//    private static final String urlBase = "https://reverb.com/api/listings/all";
+    public static List<InstREVSC> JsonBuild(String urlComp) { //urlComp = composição com termos de busca
+        String urlBase = urlComp;
         List<InstREVSC> instList = new ArrayList<>();
         
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("MMddyyyyhhmmss");
-        String ts = sdf.format(date);
-        
-        String hashStr = MD5(ts);
-        String uri = urlBase + "&ts" + ts + "&hash=" + hashStr;
+//        Date date = new Date();
+//        SimpleDateFormat sdf = new SimpleDateFormat("MMddyyyyhhmmss");
+//        String ts = sdf.format(date);
+//        
+//        String hashStr = MD5(ts);
+//        String uri = urlBase + "&ts" + ts + "&hash=" + hashStr;
         URL url;
         
         
@@ -59,7 +59,7 @@ public class Manager {
             bf.close();
             
             conn.disconnect();
-            instList = RevParser.parseFeed(sb.toString());
+            instList = RevParser.parse(sb.toString());
         } catch (MalformedURLException ex) {
             Logger.getLogger(Manager.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

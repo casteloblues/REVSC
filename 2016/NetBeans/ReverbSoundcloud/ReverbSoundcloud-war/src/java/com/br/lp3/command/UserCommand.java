@@ -7,7 +7,6 @@ package com.br.lp3.command;
 
 import com.br.lp3.controller.Manager;
 import com.br.lp3.dao.UserRevSCDAO;
-import com.br.lp3.entities.InstREVSC;
 import com.br.lp3.entities.UserREVSC;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -32,15 +31,14 @@ public class UserCommand implements Command {
     @Override
     public void exec() {
         String action = req.getParameter("action");
-
         switch (action) {
             case "login":
                 String username = req.getParameter("username");
                 String pwd = req.getParameter("password");
-
+                
                 UserRevSCDAO uDAO = new UserRevSCDAO();
                 UserREVSC user = uDAO.readByUsername(username);
-
+                
                 if (user != null && user.getPassword().equals(pwd)) {
                     req.getSession().setAttribute("username", username);
                     retPage = "index.jsp";
@@ -49,35 +47,48 @@ public class UserCommand implements Command {
                     retPage = "login.jsp";
                 }
                 break;
-
+                
             case "logout":
                 req.getSession().setAttribute("username", null);
                 retPage = "index.jsp";
                 break;
-
+                
             case "reverbSearch":
+                String queryFull = req.getParameter("query");
+//                System.out.println(queryFull);
+                req.setAttribute("queryFull", queryFull);
                 retPage = "reverbSearch.jsp";
                 break;
-
+                
             case "reverbSearchDetail":
                 req.setAttribute("brand", req.getParameter("brand"));
                 req.setAttribute("model", req.getParameter("model"));
                 req.setAttribute("year_max", req.getParameter("year_max"));
                 req.setAttribute("year_min", req.getParameter("year_min"));
-                String urlComp = "https://reverb.com/api/listings/all?make=" + req.getParameter("brand") + 
-                        "&model=" + req.getParameter("model") + "&year_max=" + req.getParameter("year_max") + 
+//                String urlComp = "https://reverb.com/?query=" + req.getParameter("brand") + "+" + req.getParameter("model") +
+//                        "&x=11&y=5";
+                String urlComp = "https://reverb.com/api/listings/all?make=" + req.getParameter("brand") +
+                        "&model=" + req.getParameter("model") + "&year_max=" + req.getParameter("year_max") +
                         "&year_min=" + req.getParameter("year_min") + "&page=1&per_page=50";
-                List instList = Manager.teste();
-                req.setAttribute("instList", instList);
                 
                 System.out.println(urlComp);
-                for (int i = 0; i < instList.size(); i++) {
-                    System.out.println(instList.get(i));
-                }
+//                
+//                String queryC = req.getParameter("brand") + "+" + req.getParameter("model");
+//                System.out.println(queryC);
+//                req.setAttribute("queryC", queryC);
                 
+                
+                List instList = Manager.JsonBuild(urlComp);
+                
+//                for (int i = 0; i < instList.size(); i++) {
+//                    System.out.println(instList.get(i));
+//                }
+                
+                req.setAttribute("instList", instList);
                 retPage = "reverbSearch.jsp";
                 break;
         }  
+
     }
 
     @Override

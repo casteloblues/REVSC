@@ -28,8 +28,8 @@ Example: search all listings
         Example: search for a particular model
         -->
         <form action="home"> <!--https://reverb.com-->
-            <input type="hidden" name="_aid" value="[your affiliate id]">
-            <input type="hidden" name="model" value="les paul">
+<!--            <input type="hidden" name="_aid" value="">
+            <input type="hidden" name="model" value="">-->
             <input name="query" style="font-size: 1.10em; border: 1px solid #d2d2d2; background-color: #f2f2f0; padding: 0.42857rem 0.85714rem; -webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px; width: 400px;" placeholder="Find Gear on Reverb">
             <input type="image" alt="Submit Search" src="http://i.imgur.com/Xqd1zPL.png?1" style="height: 32px; margin-bottom: -10px">
             <input type="hidden" name="command" value="User"/>
