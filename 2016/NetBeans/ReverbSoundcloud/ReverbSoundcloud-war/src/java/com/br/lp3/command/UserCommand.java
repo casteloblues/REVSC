@@ -69,9 +69,9 @@ public class UserCommand implements Command {
 //                        "&x=11&y=5";
                 String urlComp = "https://reverb.com/api/listings/all?make=" + req.getParameter("brand") +
                         "&model=" + req.getParameter("model") + "&year_max=" + req.getParameter("year_max") +
-                        "&year_min=" + req.getParameter("year_min") + "&page=1&per_page=50";
+                        "&year_min=" + req.getParameter("year_min");
                 
-                System.out.println(urlComp);
+//                System.out.println(urlComp);
 //                
 //                String queryC = req.getParameter("brand") + "+" + req.getParameter("model");
 //                System.out.println(queryC);

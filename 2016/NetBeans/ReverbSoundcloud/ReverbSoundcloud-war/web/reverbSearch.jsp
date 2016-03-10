@@ -19,13 +19,8 @@
         <%--<c:redirect url="https://reverb.com/api/listings/all?make=${brand}&model=${model}&year_max=${year_max}&year_min=${year_min}&page=1&per_page=50"></c:redirect>--%>
 
         <c:forEach items="${instList}" var="inst">
-            <c:out value="${inst.photo}"/>
+            <input type="image" src="${inst.getPhoto()}" style="height: 300px; margin-bottom: -10px">
             <p><c:out value="${inst.title}"/></p>
-            
-            
-
         </c:forEach>
-
-
     </body>
 </html>

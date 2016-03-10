@@ -45,7 +45,6 @@ public class RevParser {
             String phref = photo.getString("href");
             
             Photo p = new Photo(phref);
-
             
             InstREVSC instRev = new InstREVSC(id, p, make, model, finish, year, title, description);
             instruments.add(instRev);
