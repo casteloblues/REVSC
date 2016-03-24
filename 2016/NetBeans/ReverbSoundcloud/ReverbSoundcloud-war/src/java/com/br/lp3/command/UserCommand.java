@@ -7,6 +7,7 @@ package com.br.lp3.command;
 
 import com.br.lp3.controller.Manager;
 import com.br.lp3.dao.UserRevSCDAO;
+import com.br.lp3.entities.InstREVSC;
 import com.br.lp3.entities.UserREVSC;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -78,10 +79,10 @@ public class UserCommand implements Command {
 //                req.setAttribute("queryC", queryC);
                 
                 
-                List instList = Manager.JsonBuild(urlComp);
+                List<InstREVSC> instList = Manager.JsonBuild(urlComp);
                 
 //                for (int i = 0; i < instList.size(); i++) {
-//                    System.out.println(instList.get(i));
+//                    System.out.println(instList.get(i).getTitle());
 //                }
                 
                 req.setAttribute("instList", instList);
